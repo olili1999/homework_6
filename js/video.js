@@ -7,6 +7,7 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
 	video.play(); 
+	document.getElementById("volume").innerHTML = "100%";
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
@@ -40,15 +41,15 @@ document.querySelector("#skip").addEventListener("click", function() {
 
 
 document.querySelector("#mute").addEventListener("click", function() {
-	video.muted = !video.muted; 
 	document.getElementById("mute").innerHTML = video.muted ? "Mute": "Unmute"; 
+	video.muted = !video.muted;
 }); 
 
 
 document.querySelector("#volumeSlider").addEventListener("change", function() {
 	let curr_volume = document.getElementById("volumeSlider").value; 
 	video.volume = curr_volume/100; 
-	document.getElementById("volume").innerHTML = curr_volume;
+	document.getElementById("volume").innerHTML = curr_volume + "%";
 	console.log(video.volume); 
 
 }); 
